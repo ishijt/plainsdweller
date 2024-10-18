@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-    <title>Game On</title>
+    <link href="../css/character.css" rel="stylesheet">
+    <title>Character Creation</title>
 </head>
 <body>
     <div id="container">
@@ -17,6 +18,66 @@
             </ul>
         </nav>
     </div>
-    <script src="../js/functions.js"></script>
+    <div class="character-creation">
+        <!-- Ensimmäinen vaihe -->
+        <div class="step step-1 active">
+            <h2>Select Your Race</h2>
+            <div class="race-options">
+                <div class="option" choice-race="Human">
+                    <img src="../images/human.jpg" alt="Human">
+                    <p>Human</p>
+                </div>
+                <div class="option" choice-race="Elf">
+                    <img src="../images/elf.jpg" alt="Elf">
+                    <p>Elf</p>
+                </div>
+                <div class="option" choice-race="Dwarf">
+                    <img src="../images/dwarf.jpg" alt="Dwarf">
+                    <p>Dwarf</p>
+                </div>
+                <div class="option" choice-race="Halfling">
+                    <img src="../images/halfling.jpg" alt="Halfling">
+                    <p>Halfling</p>
+                </div>
+            </div>
+        </div>
+        <!-- Toinen vaihe -->
+        <div class="step step-2">
+            <h2>Select Your Class</h2>
+            <div class="class-options">
+                <div class="option" choice-class="Warrior">
+                    <img src="warrior.jpg" alt="Warrior">
+                    <p>Warrior</p>
+                </div>
+                <div class="option" choice-class="Rogue">
+                    <img src="rogue.jpg" alt="Rogue">
+                    <p>Rogue</p>
+                </div>
+                <div class="option" choice-class="Crusader">
+                    <img src="crusader.jpg" alt="Crusader">
+                    <p>Crusader</p>
+                </div>
+                <div class="option" choice-class="Cleric">
+                    <img src="cleric.jpg" alt="Cleric">
+                    <p>Cleric</p>
+                </div>
+                <div class="option" choice-class="Sorcerer">
+                    <img src="sorcerer.jpg" alt="Sorcerer">
+                    <p>Sorcerer</p>
+                </div>
+                <div class="option" choice-class="Shaman">
+                    <img src="shaman.jpg" alt="Shaman">
+                    <p>Shaman</p>
+                </div>  
+            </div>
+        </div>
+        <!-- Kolmas ja viimeinen vaihe -->
+        <div class="step step-3">
+            <h2>Finalize Your Character</h2>
+            <p>Here you can choose the details of your character!</p>
+        </div>
+    </form>
+    <script src="./js/nav.js"></script>
+    <script src="../js/character.js"></script>
 </body>
 </html>

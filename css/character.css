@@ -1,0 +1,43 @@
+.character-creation {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.step {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.5s ease;
+}
+
+.step.active {
+    left: 0;
+}
+
+.options {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.option {
+    cursor: pointer;
+    text-align: center;
+}
+
+.option img {
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.option:hover img {
+    transform: scale(1.1);
+}
