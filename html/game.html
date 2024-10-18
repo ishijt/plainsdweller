@@ -19,6 +19,28 @@
         </nav>
     </div>
     <div class="character-creation">
+        <!-- Pop-up -ohjeet -->
+         <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Welcome! Here is a quick instruction!</h2>
+                <p>
+                    First, choose your character's race. You have four choices!
+                </p>
+                <p>
+                    Next, choose your character's class from seven choices.
+                    This defines your abilities, strengths and weaknesses!
+                </p>
+                <p>
+                    Finally, you are able to set up more details about how
+                    your character looks like.
+                </p>
+                <p>
+                    Your character will be generated after a moment after
+                    you finish!
+                </p>
+                <button id="close-popup">I understand!</button>
+            </div>
+         </div>
         <!-- Ensimmäinen vaihe -->
         <div class="step step-1 active">
             <h2>Select Your Race</h2>
@@ -70,13 +92,14 @@
                     <p>Shaman</p>
                 </div>  
             </div>
+            <button class="prev-step">I want to change my choice</button>
         </div>
         <!-- Kolmas ja viimeinen vaihe -->
         <div class="step step-3">
             <h2>Finalize Your Character</h2>
             <p>Here you can choose the details of your character!</p>
+            <button class="prev-step">I want to change my choice</button>
         </div>
-    </form>
     <script src="./js/nav.js"></script>
     <script src="../js/character.js"></script>
 </body>
