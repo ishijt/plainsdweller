@@ -65,6 +65,10 @@ button:hover {
     font-size: 2rem;
 }
 
+.step h3 {
+    text-align: center;
+}
+
 .step.active {
     left: 0;
 }
@@ -72,15 +76,56 @@ button:hover {
 .race-options {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    align-items: start;
-}
-
-.class-options {
-    display: flex;
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.class-options,
+.hair-color-options,
+.background-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gender-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: center;
+}
+
+select {
+    font-family: 'Cinzel', serif;
+    background-color: rgba(36, 13, 29);
+    color: azure;
+    font-size: 1.5rem;
+    border: 1px solid rgba(36, 13, 29, 0.9);
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease
+}
+
+select option:hover {
+    background-color: rgba(36, 13, 29);
+    color:black;
+}
+
+.last-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .option {
@@ -117,6 +162,11 @@ button:hover {
     background-color: rgba(36, 13, 29);
 }
 
+.rr-left-text {
+    font-size: 0.75rem;
+    color: rgb(243, 102, 102);
+}
+
 @keyframes slideInPopup {
     0% {
         transform: translateY(-50px);
@@ -129,12 +179,19 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    .race-options {
+    .race-options,
+    .class-options,
+    .hair-color-options, 
+    .background-options {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .character-creation h2 {
         margin-top: 75px;
         font-size: 1.5rem;
+    }
+
+    select {
+        width: 100%;
     }
 }

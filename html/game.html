@@ -24,19 +24,16 @@
             <div class="popup-content">
                 <h2>Welcome! Here is a quick instruction!</h2>
                 <p>
-                    First, choose your character's race. You have four choices!
+                    First, choose your character's race. 
+                    You have four choices!
                 </p>
                 <p>
-                    Next, choose your character's class from seven choices.
+                    Next, choose your character's class from six choices.
                     This defines your abilities, strengths and weaknesses!
                 </p>
                 <p>
-                    Finally, you are able to set up more details about how
-                    your character looks like.
-                </p>
-                <p>
-                    Your character will be generated after a moment after
-                    you finish!
+                    Finally, you are able to set your character's further 
+                    details.
                 </p>
                 <button id="close-popup">I understand!</button>
             </div>
@@ -46,19 +43,19 @@
             <h2>Select Your Race</h2>
             <div class="race-options">
                 <div class="option" choice-race="Human">
-                    <img src="../images/human.jpg" alt="Human">
+                    <img src="../images/races/human.jpg" alt="Human">
                     <p>Human</p>
                 </div>
                 <div class="option" choice-race="Elf">
-                    <img src="../images/elf.jpg" alt="Elf">
+                    <img src="../images/races/elf.jpg" alt="Elf">
                     <p>Elf</p>
                 </div>
                 <div class="option" choice-race="Dwarf">
-                    <img src="../images/dwarf.jpg" alt="Dwarf">
+                    <img src="../images/races/dwarf.jpg" alt="Dwarf">
                     <p>Dwarf</p>
                 </div>
                 <div class="option" choice-race="Halfling">
-                    <img src="../images/halfling.jpg" alt="Halfling">
+                    <img src="../images/races/halfling.jpg" alt="Halfling">
                     <p>Halfling</p>
                 </div>
             </div>
@@ -68,27 +65,27 @@
             <h2>Select Your Class</h2>
             <div class="class-options">
                 <div class="option" choice-class="Warrior">
-                    <img src="warrior.jpg" alt="Warrior">
+                    <img src="../images/classes/warrior.jpg" alt="Warrior">
                     <p>Warrior</p>
                 </div>
                 <div class="option" choice-class="Rogue">
-                    <img src="rogue.jpg" alt="Rogue">
+                    <img src="../images/classes/rogue.jpg" alt="Rogue">
                     <p>Rogue</p>
                 </div>
                 <div class="option" choice-class="Crusader">
-                    <img src="crusader.jpg" alt="Crusader">
+                    <img src="../images/classes/crusader.jpg" alt="Crusader">
                     <p>Crusader</p>
                 </div>
                 <div class="option" choice-class="Cleric">
-                    <img src="cleric.jpg" alt="Cleric">
+                    <img src="../images/classes/cleric.jpg" alt="Cleric">
                     <p>Cleric</p>
                 </div>
                 <div class="option" choice-class="Sorcerer">
-                    <img src="sorcerer.jpg" alt="Sorcerer">
+                    <img src="../images/classes/sorcerer.jpg" alt="Sorcerer">
                     <p>Sorcerer</p>
                 </div>
                 <div class="option" choice-class="Shaman">
-                    <img src="shaman.jpg" alt="Shaman">
+                    <img src="../images/classes/shaman.jpg" alt="Shaman">
                     <p>Shaman</p>
                 </div>  
             </div>
@@ -98,9 +95,109 @@
         <div class="step step-3">
             <h2>Finalize Your Character</h2>
             <p>Here you can choose the details of your character!</p>
+            <div class="last-options">
+                <h3>Gender</h3>
+                <h3>Hair Color</h3>
+                <h3>Background</h3>
+                <select id="gender-options">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>                
+                <select id="hair-color-options">
+                    <option value="blonde">Blonde</option>
+                    <option value="brown">Brown</option>
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="gray">Gray</option>
+                    <option value="white">White</option>
+                </select>               
+                <select id="background-options">
+                    <option value="noble">Noble</option>
+                    <option value="commoner">Commoner</option>
+                    <option value="outlaw">Outlaw</option>
+                    <option value="scholar">Scholar</option>
+                    <option value="entertainer">Entertainer</option>
+                    <option value="haggler">Haggler</option>
+                </select>
+            </div>      
+            <button id="confirm-details">Finalize!</button>
             <button class="prev-step">I want to change my choice</button>
         </div>
-    <script src="./js/nav.js"></script>
+        <div class="step step-4">
+            <h2>Let's Roll Your Character's Stats!</h2>
+            <div id="stats-display">
+                <p>Strength: <span id="strength"></span></p>
+                <p>Dexterity: <span id="dexterity"></span></p>
+                <p>Constitution: <span id="constitution"></span></p>
+                <p>Intelligence: <span id="intelligence"></span></p>
+                <p>Wisdom: <span id="wisdom"></span></p>
+                <p>Charisma: <span id="charisma"></span></p>
+            </div>
+            <button id="reroll-stats">Reroll!</button>
+            <p class="rr-left-text">Rerolls left: <span id="rerolls-left">3</span></p>
+            <p>You can choose these stats, or reroll a few times!</p>
+            <p>Be wary though, since you can't undo these rerolls!</p>
+            <button id="accept-stats">Accept!</button>
+            <button class="prev-step">Back</button>
+        </div>
+        <div class="step step-5">
+            <h2>Add Final Stat Points</h2>
+            <p>Choose two different stats to increase:</p>
+            <div class="stat-row">
+                <span class="stat-label">Strength</span>
+                <span class="stat-value" id="strength-upd"></span>
+                <div class="radio-buttons">
+                    <input type="radio" name="increase-2" value="Strength"> +2
+                    <input type="radio" name="increase-1" value="Strength"> +1
+                </div>
+            </div>
+        
+            <div class="stat-row">
+                <span class="stat-label">Dexterity</span>
+                <span class="stat-value" id="dexterity-upd"></span>
+                <div class="radio-buttons">
+                    <input type="radio" name="increase-2" value="Dexterity"> +2
+                    <input type="radio" name="increase-1" value="Dexterity"> +1
+                </div>
+            </div>
+        
+            <div class="stat-row">
+                <span class="stat-label">Constitution</span>
+                <span class="stat-value" id="constitution-upd"></span>
+                <div class="radio-buttons">
+                    <input type="radio" name="increase-2" value="Constitution"> +2
+                    <input type="radio" name="increase-1" value="Constitution"> +1
+                </div>
+            </div>
+        
+            <div class="stat-row">
+                <span class="stat-label">Intelligence</span>
+                <span class="stat-value" id="intelligence-upd"></span>
+                <div class="radio-buttons">
+                    <input type="radio" name="increase-2" value="Intelligence"> +2
+                    <input type="radio" name="increase-1" value="Intelligence"> +1
+                </div>
+            </div>
+        
+            <div class="stat-row">
+                <span class="stat-label">Wisdom</span>
+                <span class="stat-value" id="wisdom-upd"></span>
+                <div class="radio-buttons">
+                    <input type="radio" name="increase-2" value="Wisdom"> +2
+                    <input type="radio" name="increase-1" value="Wisdom"> +1
+                </div>
+            </div>
+        
+            <div class="stat-row">
+                <span class="stat-label">Charisma</span>
+                <span class="stat-value" id="charisma-upd"></span>
+                <div class="radio-buttons">
+                    <input type="radio" name="increase-2" value="Charisma"> +2
+                    <input type="radio" name="increase-1" value="Charisma"> +1
+                </div>
+            </div>
+        </div>
+    <script src="../js/nav.js"></script>
     <script src="../js/character.js"></script>
 </body>
 </html>
