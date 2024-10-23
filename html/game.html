@@ -20,7 +20,7 @@
     </div>
     <div class="character-creation">
         <!-- Pop-up -ohjeet -->
-         <div id="popup" class="popup">
+        <div id="popup" class="popup">
             <div class="popup-content">
                 <h2>Welcome! Here is a quick instruction!</h2>
                 <p>
@@ -37,7 +37,7 @@
                 </p>
                 <button id="close-popup">I understand!</button>
             </div>
-         </div>
+        </div>
         <!-- Ensimmäinen vaihe -->
         <div class="step step-1 active">
             <h2>Select Your Race</h2>
@@ -147,7 +147,7 @@
                 <span class="stat-label">Strength</span>
                 <span class="stat-value" id="strength-upd"></span>
                 <div class="radio-buttons">
-                    <input type="radio" name="increase-2" value="Strength"> +2
+                    <input type="radio" name="increase-2" value="Strength" default> +2
                     <input type="radio" name="increase-1" value="Strength"> +1
                 </div>
             </div>
@@ -157,7 +157,7 @@
                 <span class="stat-value" id="dexterity-upd"></span>
                 <div class="radio-buttons">
                     <input type="radio" name="increase-2" value="Dexterity"> +2
-                    <input type="radio" name="increase-1" value="Dexterity"> +1
+                    <input type="radio" name="increase-1" value="Dexterity" default> +1
                 </div>
             </div>
         
@@ -196,7 +196,40 @@
                     <input type="radio" name="increase-1" value="Charisma"> +1
                 </div>
             </div>
+            <button id="finalize-stats">Add these stats!</button>
         </div>
+        <div id="confirm-popup" class="hidden">
+            <div class="popup-content">
+                <h2>Confirm Your Stats</h2>
+                <p>Strength: <span id="confirm-strength"></span></p>
+                <p>Dexterity: <span id="confirm-dexterity"></span></p>
+                <p>Constitution: <span id="confirm-constitution"></span></p>
+                <p>Intelligence: <span id="confirm-intelligence"></span></p>
+                <p>Wisdom: <span id="confirm-wisdom"></span></p>
+                <p>Charisma: <span id="confirm-charisma"></span></p>
+                <button id="confirm-yes">Yes</button>
+                <button id="confirm-no">No, go back</button>
+            </div>
+        </div>
+        <div class="step step-6">
+            <div id="character-profile" class="profile hidden">
+                <h2>Your Character's Profile</h2>
+                <p>Race: <span id="profile-race"></span></p>
+                <p>Class: <span id="profile-class"></span></p>
+                <p>Gender: <span id="profile-gender"></span></p>
+                <p>Hair Color: <span id="profile-haircolor"></span></p>
+                <p>Background: <span id="profile-background"></span></p>
+                <h3>Stats:</h3>
+                <ul>
+                    <li>Strength: <span id="profile-strength"></span></li>
+                    <li>Dexterity: <span id="profile-dexterity"></span></li>
+                    <li>Constitution: <span id="profile-constitution"></span></li>
+                    <li>Intelligence: <span id="profile-intelligence"></span></li>
+                    <li>Wisdom: <span id="profile-wisdom"></span></li>
+                    <li>Charisma: <span id="profile-charisma"></span></li>
+                </ul>
+            </div>
+        </div>  
     <script src="../js/nav.js"></script>
     <script src="../js/character.js"></script>
 </body>
