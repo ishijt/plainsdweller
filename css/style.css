@@ -59,16 +59,16 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(7, 2, 7, 0.75);
+    background-color: rgb(7, 2, 7, 0.6);
     z-index: 10;
     padding: 1vh 0;
     display: flex;
     justify-content: center;
-    transition: top 0.5s ease-in-out;
+    transition: top 2.5s ease;
 }
 
-nav.hidden {
-    top: -28px;
+nav.floating {
+    animation: floating 3s ease-in-out infinite;
 }
 
 nav ul {
@@ -137,6 +137,51 @@ nav ul li:hover {
     animation: pulseColorHover 1.5s ease-in-out infinite;
 }
 
+#characters-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background:
+        linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(26, 10, 21) 100%),
+        url('../images/bg-map.jpg') no-repeat center center/cover;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(36, 13, 29, 0.9);
+    color: azure;
+    text-shadow: 1.5px 1.5px 5px rgba(0, 0, 0, 0.7);
+}
+
+#characters-list div {
+    border: 2.5px solid rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 8px;
+}
+
+#characters-list li {
+    list-style: none;
+}
+
+#characters-list .delete-btn {
+    display: block;
+    font-family: 'Cinzel', serif;
+    align-items: center;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 @keyframes pulseColor {
     0% {
         color: azure;
@@ -166,8 +211,10 @@ nav ul li:hover {
         margin: 5px 0;
     }
 
-    nav.hidden {
-        top: -35px;
+    nav ul li a {
+        font-size: 15px;
+        padding: 3px 5px;
+        border-radius: 35px;
     }
 
     #home-header h1 {

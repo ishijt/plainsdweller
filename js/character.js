@@ -59,11 +59,43 @@ const updateChosenStatsDisplay = () => {
     document.getElementById('charisma-upd').textContent = stats.Charisma
 }
 
+const showProfile = (characterData) => {
+    if (characterData) {
+        document.getElementById('profile-race').textContent = characterData.race
+        document.getElementById('profile-class').textContent = characterData.class
+        document.getElementById('profile-gender').textContent = characterData.gender
+        document.getElementById('profile-haircolor').textContent = characterData.hairColor
+        document.getElementById('profile-background').textContent = characterData.background
+
+        // Statsit
+        document.getElementById('profile-strength').textContent = characterData.stats.Strength
+        document.getElementById('profile-dexterity').textContent = characterData.stats.Dexterity
+        document.getElementById('profile-constitution').textContent = characterData.stats.Constitution
+        document.getElementById('profile-intelligence').textContent = characterData.stats.Intelligence
+        document.getElementById('profile-wisdom').textContent = characterData.stats.Wisdom
+        document.getElementById('profile-charisma').textContent = characterData.stats.Charisma
+
+        // Näytetään profiili
+        document.getElementById('character-profile').classList.remove('hidden')
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    popup.classList.remove('hidden')
+
+    const showInstructionsBtn = document.getElementById('show-instructions')
+    const popupShown = sessionStorage.getItem('popupShown')
+
+    if (!popupShown) {
+        popup.classList.remove('hidden')
+        sessionStorage.setItem('popupShown', 'true')
+    }
 
     closePopupBtn.addEventListener('click', () => {
         popup.classList.add('hidden')
+    })
+
+    showInstructionsBtn.addEventListener('click', () => {
+        popup.classList.remove('hidden')
     })
 
     const goToNextStep = () => {
@@ -90,7 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (currentStep === 5) {
             saveCharacterData()
-            showProfile()
+
+            let characters = JSON.parse(localStorage.getItem('characters')) || []
+            const latestCharacter = characters[characters.length - 1]
+
+            showProfile(latestCharacter)
         }
     }
 
@@ -190,7 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const showConfirmPopup = () => {
-
         document.getElementById('confirm-strength').textContent = stats.Strength
         document.getElementById('confirm-dexterity').textContent = stats.Dexterity
         document.getElementById('confirm-constitution').textContent = stats.Constitution
@@ -200,46 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
         document.getElementById('confirm-popup').classList.remove('hidden')
     }
-
-    // Tallennetaan hahmon tiedot localStorageen
-    const saveCharacterData = () => {
-        const characterData = {
-            race: selectedRace,
-            class: selectedClass,
-            gender: selectedGender,
-            hairColor: selectedHairColor,
-            background: selectedBG,
-            stats: stats
-        }
-
-        localStorage.setItem('characterData', JSON.stringify(characterData))
-    }
-
-    // Profiilin näyttäminen
-    const showProfile = () => {
-        const characterData = JSON.parse(localStorage.getItem('characterData'))
-
-        if (characterData) {
-            document.getElementById('profile-race').textContent = characterData.race
-            document.getElementById('profile-class').textContent = characterData.class
-            document.getElementById('profile-gender').textContent = characterData.gender
-            document.getElementById('profile-haircolor').textContent = characterData.hairColor
-            document.getElementById('profile-background').textContent = characterData.background
-
-            // Statit
-            document.getElementById('profile-strength').textContent = characterData.stats.Strength
-            document.getElementById('profile-dexterity').textContent = characterData.stats.Dexterity
-            document.getElementById('profile-constitution').textContent = characterData.stats.Constitution
-            document.getElementById('profile-intelligence').textContent = characterData.stats.Intelligence
-            document.getElementById('profile-wisdom').textContent = characterData.stats.Wisdom
-            document.getElementById('profile-charisma').textContent = characterData.stats.Charisma
-
-            // Näytetään profiili
-            document.getElementById('character-profile').classList.remove('hidden')
-        }
-    }
-
-    // Jos käyttäjä valitsee "No", palataan takaisin vaiheeseen 5.
+    
+    // Jos käyttäjä valitsee "No", palataan takaisin vaiheeseen 5
     document.getElementById('confirm-no').addEventListener('click', () => {
         const selectedStat2 = document.querySelector('input[name="increase-2"]:checked').value
         const selectedStat1 = document.querySelector('input[name="increase-1"]:checked').value
@@ -262,4 +259,29 @@ document.addEventListener('DOMContentLoaded', () => {
         steps[currentStep].classList.add('active')    
         goToNextStep()
     })
+
+    // Tallennetaan hahmon tiedot localStorageen
+    const saveCharacterData = () => {
+        let characters = JSON.parse(localStorage.getItem('characters')) || []
+        
+        // Tarkistetaan onko hahmoja jo rajoitettu määrä
+        if (characters.length >= 6) {
+            alert("Character limit 6! You can't create more!")
+            return
+        }
+
+        // Tallennetaan hahmodata
+        const characterData = {
+            race: selectedRace,
+            class: selectedClass,
+            gender: selectedGender,
+            hairColor: selectedHairColor,
+            background: selectedBG,
+            stats: stats
+        }
+
+        characters.push(characterData)
+
+        localStorage.setItem('characters', JSON.stringify(characters))
+    }
 })

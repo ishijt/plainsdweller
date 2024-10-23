@@ -14,13 +14,13 @@
             <ul>
                 <li><a href="../index.html" title="home">Home</a></li>
                 <li><a href="game.html" title="creation">Character Creation</a></li>
+                <li><a href="creations.html">Saved Characters</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
     </div>
     <div class="character-creation">
-        <!-- Pop-up -ohjeet -->
-        <div id="popup" class="popup">
+        <div id="popup" class="popup hidden">
             <div class="popup-content">
                 <h2>Welcome! Here is a quick instruction!</h2>
                 <p>
@@ -29,16 +29,15 @@
                 </p>
                 <p>
                     Next, choose your character's class from six choices.
-                    This defines your abilities, strengths and weaknesses!
+                    Your class always has +2 to their specialized stat!
                 </p>
                 <p>
                     Finally, you are able to set your character's further 
                     details.
                 </p>
-                <button id="close-popup">I understand!</button>
+                <button id="close-popup">Understood!</button>
             </div>
         </div>
-        <!-- Ensimmäinen vaihe -->
         <div class="step step-1 active">
             <h2>Select Your Race</h2>
             <div class="race-options">
@@ -58,9 +57,9 @@
                     <img src="../images/races/halfling.jpg" alt="Halfling">
                     <p>Halfling</p>
                 </div>
+                <button id="show-instructions">Show Instructions</button>
             </div>
         </div>
-        <!-- Toinen vaihe -->
         <div class="step step-2">
             <h2>Select Your Class</h2>
             <div class="class-options">
@@ -89,13 +88,12 @@
                     <p>Shaman</p>
                 </div>  
             </div>
-            <button class="prev-step">I want to change my choice</button>
+            <button class="prev-step">Back</button>
         </div>
-        <!-- Kolmas ja viimeinen vaihe -->
         <div class="step step-3">
             <h2>Finalize Your Character</h2>
             <p>Here you can choose the details of your character!</p>
-            <div class="last-options">
+            <div class="detail-options">
                 <h3>Gender</h3>
                 <h3>Hair Color</h3>
                 <h3>Background</h3>
@@ -121,7 +119,7 @@
                 </select>
             </div>      
             <button id="confirm-details">Finalize!</button>
-            <button class="prev-step">I want to change my choice</button>
+            <button class="prev-step">Back</button>
         </div>
         <div class="step step-4">
             <h2>Let's Roll Your Character's Stats!</h2>
@@ -151,7 +149,6 @@
                     <input type="radio" name="increase-1" value="Strength"> +1
                 </div>
             </div>
-        
             <div class="stat-row">
                 <span class="stat-label">Dexterity</span>
                 <span class="stat-value" id="dexterity-upd"></span>
@@ -160,7 +157,6 @@
                     <input type="radio" name="increase-1" value="Dexterity" default> +1
                 </div>
             </div>
-        
             <div class="stat-row">
                 <span class="stat-label">Constitution</span>
                 <span class="stat-value" id="constitution-upd"></span>
@@ -169,7 +165,6 @@
                     <input type="radio" name="increase-1" value="Constitution"> +1
                 </div>
             </div>
-        
             <div class="stat-row">
                 <span class="stat-label">Intelligence</span>
                 <span class="stat-value" id="intelligence-upd"></span>
@@ -177,8 +172,7 @@
                     <input type="radio" name="increase-2" value="Intelligence"> +2
                     <input type="radio" name="increase-1" value="Intelligence"> +1
                 </div>
-            </div>
-        
+            </div>  
             <div class="stat-row">
                 <span class="stat-label">Wisdom</span>
                 <span class="stat-value" id="wisdom-upd"></span>
@@ -187,7 +181,6 @@
                     <input type="radio" name="increase-1" value="Wisdom"> +1
                 </div>
             </div>
-        
             <div class="stat-row">
                 <span class="stat-label">Charisma</span>
                 <span class="stat-value" id="charisma-upd"></span>
@@ -212,22 +205,30 @@
             </div>
         </div>
         <div class="step step-6">
-            <div id="character-profile" class="profile hidden">
-                <h2>Your Character's Profile</h2>
-                <p>Race: <span id="profile-race"></span></p>
-                <p>Class: <span id="profile-class"></span></p>
-                <p>Gender: <span id="profile-gender"></span></p>
-                <p>Hair Color: <span id="profile-haircolor"></span></p>
-                <p>Background: <span id="profile-background"></span></p>
-                <h3>Stats:</h3>
-                <ul>
-                    <li>Strength: <span id="profile-strength"></span></li>
-                    <li>Dexterity: <span id="profile-dexterity"></span></li>
-                    <li>Constitution: <span id="profile-constitution"></span></li>
-                    <li>Intelligence: <span id="profile-intelligence"></span></li>
-                    <li>Wisdom: <span id="profile-wisdom"></span></li>
-                    <li>Charisma: <span id="profile-charisma"></span></li>
-                </ul>
+            <div id="step-6-header">
+                <h2>Your Character Has Been Saved!</h2>
+                <h2>Here's Your Character's Profile</h2>
+            </div>
+            <div id="character-profile" class="profile hidden">          
+                <div id="character-details">
+                    <h3>Details</h3>
+                    <p>Race: <span id="profile-race"></span></p>
+                    <p>Class: <span id="profile-class"></span></p>
+                    <p>Gender: <span id="profile-gender"></span></p>
+                    <p>Hair Color: <span id="profile-haircolor"></span></p>
+                    <p>Background: <span id="profile-background"></span></p>
+                </div>
+                <div id="character-stats">
+                    <ul>
+                        <h3>Stats</h3>
+                        <li>Strength: <span id="profile-strength"></span></li>
+                        <li>Dexterity: <span id="profile-dexterity"></span></li>
+                        <li>Constitution: <span id="profile-constitution"></span></li>
+                        <li>Intelligence: <span id="profile-intelligence"></span></li>
+                        <li>Wisdom: <span id="profile-wisdom"></span></li>
+                        <li>Charisma: <span id="profile-charisma"></span></li>
+                    </ul>
+                </div>
             </div>
         </div>  
     <script src="../js/nav.js"></script>
