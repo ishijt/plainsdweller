@@ -51,7 +51,7 @@ button:hover {
     bottom: 30px;
     z-index: 1000;
     background-color: black;
-    border: 2px solid #e6b65b;
+    border: 1.5px solid #e6b65b;
 }
 
 .character-creation {

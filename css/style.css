@@ -137,37 +137,69 @@ nav ul li:hover {
     animation: pulseColorHover 1.5s ease-in-out infinite;
 }
 
+#saved-chars h1 {
+    color: azure;
+    margin-top: 10vh;
+    text-align: center;
+}
+
 #characters-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background:
         linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0) 30%, 
         rgba(26, 10, 21) 100%),
         url('../images/bg-map.jpg') no-repeat center center/cover;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 4px;
     background-color: rgba(36, 13, 29, 0.9);
     color: azure;
     text-shadow: 1.5px 1.5px 5px rgba(0, 0, 0, 0.7);
 }
 
 #characters-list div {
-    border: 2.5px solid rgba(0, 0, 0, 0.75);
+    border: 2.5px solid rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    padding: 15px;
-    margin: 8px;
+    padding: 12px;
+    margin: 4px;
+    text-align: center;
+}
+
+#characters-list h4 {
+    margin-bottom: 4px;
+}
+
+#characters-list p {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 #characters-list li {
     list-style: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 0;
+    margin: 2px 0;
+}
+
+#characters-list ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 13px;
+    justify-content: space-between;
+    padding: 0;
+    margin: 5px 0;
 }
 
 #characters-list .delete-btn {
     display: block;
     font-family: 'Cinzel', serif;
-    align-items: center;
+    margin: 5px auto;
+    margin-top: 10px;
+}
+
+#characters-list .delete-btn:hover {
+    transform: scale(1.1);
 }
 
 @keyframes floating {
@@ -206,6 +238,12 @@ nav ul li:hover {
     }
 }
 
+@media (max-width: 1024px) {
+    #characters-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     nav ul li {
         margin: 5px 0;
@@ -223,5 +261,9 @@ nav ul li:hover {
 
     #home-header p {
         font-size: 1.1rem;
+    }
+
+    #characters-list ul {
+        font-size: 11px;
     }
 }
