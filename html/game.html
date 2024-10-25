@@ -13,11 +13,18 @@
         <nav>
             <ul>
                 <li><a href="../index.html" title="home">Home</a></li>
-                <li><a href="game.html" title="creation">Character Creation</a></li>
+                <li><a href="game.html" title="creation" id="create-character">Character Creation</a></li>
                 <li><a href="creations.html">Saved Characters</a></li>
-                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
+    </div>
+    <div class="slideshow-container">
+        <div class="slide" style="background-image: url('../images/bg/bg1.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/bg/bg2.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/bg/bg3.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/bg/bg4.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/bg/bg5.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/bg/bg6.jpg');"></div>
     </div>
     <div class="character-creation">
         <div id="popup" class="popup hidden">
@@ -190,9 +197,10 @@
                 </div>
             </div>
             <button id="finalize-stats">Add these stats!</button>
+            <button class="prev-step">Back</button>
         </div>
         <div id="confirm-popup" class="hidden">
-            <div class="popup-content">
+            <div class="popup-content2">
                 <h2>Confirm Your Stats</h2>
                 <p>Strength: <span id="confirm-strength"></span></p>
                 <p>Dexterity: <span id="confirm-dexterity"></span></p>
@@ -201,7 +209,7 @@
                 <p>Wisdom: <span id="confirm-wisdom"></span></p>
                 <p>Charisma: <span id="confirm-charisma"></span></p>
                 <button id="confirm-yes">Yes</button>
-                <button id="confirm-no">No, go back</button>
+                <button id="confirm-no">No</button>
             </div>
         </div>
         <div class="step step-6">
@@ -230,6 +238,7 @@
                     </ul>
                 </div>
             </div>
+            <button id="creations-link"><a href="creations.html">Show Saved Characters</button>
         </div>  
     <script src="../js/nav.js"></script>
     <script src="../js/character.js"></script>

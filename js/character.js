@@ -81,9 +81,23 @@ const showProfile = (characterData) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
     const showInstructionsBtn = document.getElementById('show-instructions')
     const popupShown = sessionStorage.getItem('popupShown')
+
+    const characterLimit = 6
+
+    let slides = document.querySelectorAll('.slide')
+    let currentSlide = 0
+
+    const showNextSlide = () => {
+        slides[currentSlide].classList.remove('active')
+        currentSlide = (currentSlide + 1) % slides.length
+        slides[currentSlide].classList.add('active')
+    }
+
+    setInterval(showNextSlide, 10000)
+
+    slides[currentSlide].classList.add('active')
 
     if (!popupShown) {
         popup.classList.remove('hidden')
@@ -99,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const goToNextStep = () => {
+
         steps.forEach(step => step.classList.remove('active'))
         currentStep++
 
@@ -142,6 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.step-1 .option').forEach(option => {
         option.addEventListener('click', () => {
+
+            const charactersList = JSON.parse(localStorage.getItem('characters')) || []
+            const characterLimit = 6
+         
+            if (charactersList.length >= characterLimit) {
+                alert("Character limit 6! You can't create more!")
+                return
+            }
+
             selectedRace = option.getAttribute('choice-race')
             console.log('Selected Race:', selectedRace)
             goToNextStep()
@@ -263,12 +287,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tallennetaan hahmon tiedot localStorageen
     const saveCharacterData = () => {
         let characters = JSON.parse(localStorage.getItem('characters')) || []
-        
-        // Tarkistetaan onko hahmoja jo rajoitettu määrä
-        if (characters.length >= 6) {
-            alert("Character limit 6! You can't create more!")
-            return
-        }
 
         // Tallennetaan hahmodata
         const characterData = {
