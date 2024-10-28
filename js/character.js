@@ -84,8 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const showInstructionsBtn = document.getElementById('show-instructions')
     const popupShown = sessionStorage.getItem('popupShown')
 
-    const characterLimit = 6
-
     let slides = document.querySelectorAll('.slide')
     let currentSlide = 0
 
